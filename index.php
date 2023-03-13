@@ -17,12 +17,32 @@ Dare all'utente anche la possibilità di permettere o meno la ripetizione di car
 
 
 
-
+<!-- invio una cifra che sara' poi il numero di lettere,cifre e simboli che comporranno la psw -->
 <?php
-$password_length = ;
-var_dump($password_length);
+$lunghezza_parola = $_GET['lunghezza_parola'] ?? '';
+var_dump($lunghezza_parola);
 
+// utilizzo il dato ricevuto in una funzione che restituira' la password
+
+function generate_password($lunghezza_parola){
+
+// creo un ciclo in cui do come numero massimo di cicli il valore dato dall'utente ed utilizzo la tabella ascii dal numero 33 al 122 per assegnare lettere numeri e simboli e successivamente creo una stringa dall'array con implode per poterlo riportare appunto come stringa a schermo.
+for($i = 0;$i < lunghezza_parola;$i++ ){
+
+  $possible_character = chr(rand(33,122));
+  $password[] = $possible_character;
+  $password = implode('', $password);
+}
+  return $password;
+  
+};
+  
 ?>
+  
+  
+  
+  
+
 
 
 <!DOCTYPE html>
@@ -42,20 +62,20 @@ var_dump($password_length);
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-8">
-      <form action="" method="GET">
-        <label for="send_psw"></label>
-    <input name="send_psw" id="send_psw" type="text" class="form-control" placeholder="Insert psw length" aria-label="Recipient's username" aria-describedby="button-addon2">
-    <button  class="btn btn-outline-secondary" type="button" id="sendpsw">Send</button>
-  </form>
+      <div class="col-12">
+        <!-- creo un form che invii con method get la langhezza della nostra psw -->
+        <form  method="GET">
+        <label for="lunghezza_parola">Lunghezza della parola</label>
+          <input name="lunghezza_parola" id="lunghezza_parola" type="number"  placeholder="Inserisci un numero..." >
+          <button>SEND</button>
+        </form>
       </div>
     </div>
   </div>
-<div class="input-group mb-3">
-  
-</div>
-  
+          
 </body>
 </html>
+
+  
 
 

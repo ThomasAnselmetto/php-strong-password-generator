@@ -20,53 +20,51 @@ Dare all'utente anche la possibilità di permettere o meno la ripetizione di car
 <!-- invio una cifra che sara' poi il numero di lettere,cifre e simboli che comporranno la psw -->
 <?php
 
-include_once __DIR__ . "./function.php";
+include __DIR__ . "./functions.php";
 $lunghezza_parola = $_GET['lunghezza_parola'] ?? '';
-
-
-// utilizzo il dato ricevuto in una funzione che restituira' la password che arrivera' da function.php
-
-
-  
+$safe_password = generate_password($lunghezza_parola);
 ?>
-  
-  
-  
-  
+
+
+
+
+
+
+
 
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Create Semi-Secure PSW</title>
-  <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 </head>
+
 <body>
   <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <!-- creo un form che invii con method get la langhezza della nostra psw -->
-        <form  method="GET">
-        <label for="lunghezza_parola">Lunghezza della parola</label>
-          <input name="lunghezza_parola" id="lunghezza_parola" type="number"  placeholder="Inserisci un numero..." >
-          <button>SEND</button>
-        </form>
+    <div class="input-group mb-3">
+      <form method="GET">
+        <label for="lunghezza_parola">lunghezza parola</label>
+        <input id="lunghezza_parola" name="lunghezza_parola" type="number" class="input-bar p-3 mt-5">
+        <button>Send</button>
+      </form>
+      <?php if(!empty($lunghezza_parola)) : ?>
+      <div>
+        <h2>Created PSW is: <?= $lunghezza_parola ?></h2>
       </div>
+      <?php endif ?>
+
     </div>
   </div>
-          
+
+
+
 </body>
+
 </html>
-
-  
-
-

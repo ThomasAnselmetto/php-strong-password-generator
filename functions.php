@@ -15,7 +15,7 @@ for($i = 0;$i < $lunghezza_parola;$i++ ){
 
   $possible_character = chr(rand(33,122));
   $password[] = $possible_character;
-  var_dump($possible_character);
+  
 }
   $password = implode('', $password);
   

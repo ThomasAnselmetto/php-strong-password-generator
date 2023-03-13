@@ -48,11 +48,17 @@ $safe_password = generate_password($lunghezza_parola);
 
 <body>
   <div class="container">
-    <?php if(!empty($safe_password)) : ?>
-    <div>
-      <h2>Created PSW is: <?= $safe_password ?></h2>
+    <div class="row mt-5">
+      <div class="col-6 ">
+
+        <?php if(!empty($safe_password)) : ?>
+        <div>
+          <h2 class="border p-4">Created PSW is: <?= $safe_password ?></h2>
+        </div>
+        <?php endif ?>
+      </div>
+
     </div>
-    <?php endif ?>
     <div class="input-group mb-3">
       <form method="GET">
         <label for="lunghezza_parola">lunghezza parola</label>

@@ -19,23 +19,14 @@ Dare all'utente anche la possibilità di permettere o meno la ripetizione di car
 
 <!-- invio una cifra che sara' poi il numero di lettere,cifre e simboli che comporranno la psw -->
 <?php
+
+include_once __DIR__ . "./function.php";
 $lunghezza_parola = $_GET['lunghezza_parola'] ?? '';
-var_dump($lunghezza_parola);
 
-// utilizzo il dato ricevuto in una funzione che restituira' la password
 
-function generate_password($lunghezza_parola){
+// utilizzo il dato ricevuto in una funzione che restituira' la password che arrivera' da function.php
 
-// creo un ciclo in cui do come numero massimo di cicli il valore dato dall'utente ed utilizzo la tabella ascii dal numero 33 al 122 per assegnare lettere numeri e simboli e successivamente creo una stringa dall'array con implode per poterlo riportare appunto come stringa a schermo.
-for($i = 0;$i < lunghezza_parola;$i++ ){
 
-  $possible_character = chr(rand(33,122));
-  $password[] = $possible_character;
-  $password = implode('', $password);
-}
-  return $password;
-  
-};
   
 ?>
   
